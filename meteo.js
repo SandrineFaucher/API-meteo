@@ -6,7 +6,7 @@ let humidity = document.getElementById("humidity");
 
 
 const appelMeteo = async () => {
-    let request = "https://api.openweathermap.org/data/2.5/weather?lat=48.85&lon=2.32&units=metric&appid=3049f73bb843072f50124411dc8e0640";
+    let request = "https://api.openweathermap.org/data/2.5/weather?lat=48.85&lon=2.32&units=metric&appid=";
   
     try {
       let response = await fetch(request);
