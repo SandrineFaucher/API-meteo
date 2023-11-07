@@ -5,7 +5,7 @@ let ressenti = document.getElementById("ressenti");
 let ville = document.getElementById("ville");
 let humidity = document.getElementById("humidity");
 
-
+ 
 // Récupération du contenu du fichier config.json
 fetch('conf.json')
   .then(response => response.json())
@@ -17,7 +17,7 @@ fetch('conf.json')
     // j'affiche les données afin de les voir dans la console de débogage
     console.log('Clé API :', apiKey);
     console.log('Ville :', city);
-
+  
     // j'effectue mon appel météo en utilisant mes données précédentes
     const appelMeteo = async () => {
       let request = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
@@ -42,8 +42,9 @@ fetch('conf.json')
       } catch (error) {
         console.error('Une erreur s\'est produite', error);
       }
-
+    
     }
+  
     // Chargement de la récupération des données 
     appelMeteo()
     
