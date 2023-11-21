@@ -10,13 +10,13 @@ body{
     display: flex;
     justify-content: center;
     padding-top: 50px;
-    padding-bottom: 50px;     
+    padding-bottom: 300px;     
 }
 
 .card{
     background: linear-gradient(to bottom, #0F4E67, #2281A6);
     width: 30%;
-    padding: 20px;
+    padding: 30px;
     padding-top: 10px;
     text-align: center;
     border-radius: 30px;     
@@ -32,13 +32,14 @@ body{
 }
 
 #ressenti{
-    font-size: small;
+    font-size: large;
 }
 
 .localisation{
     display: flex;
     justify-content: center;
     margin: 30px;
+    font-size: x-large;
 }
 
 i{
@@ -46,5 +47,33 @@ i{
 }
 
 #humidity{
-    font-size: small;
+    font-size: large;
+}
+#wind{
+    padding-top: 10px;
+}
+
+@media screen and (max-width : 576px){
+    #temperature{
+        font-size: x-large;
+        padding-bottom: 10px;
+    }
+    #ressenti{
+        font-size: 15px;
+    }
+    .localisation{
+        font-size: large;
+    }
+    #image{
+        width: 70%;
+    }
+    .card{
+        padding: 40px;
+    }
+    .wind{
+        font-size: 15px;
+    }
+    #humidity{
+        font-size: 15px;
+    }
 }
