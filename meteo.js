@@ -1,10 +1,10 @@
 
-let image = document.getElementById("image");
-let temperature = document.getElementById("temperature");
-let ressenti = document.getElementById("ressenti");
-let ville = document.getElementById("ville");
-let humidity = document.getElementById("humidity");
-let wind = document.getElementById("wind");
+const image = document.getElementById("image");
+const temperature = document.getElementById("temperature");
+const ressenti = document.getElementById("ressenti");
+const ville = document.getElementById("ville");
+const humidity = document.getElementById("humidity");
+const wind = document.getElementById("wind");
  
 // Récupération du contenu du fichier config.json
 fetch('conf.json')
@@ -21,21 +21,21 @@ fetch('conf.json')
     const appelMeteo = async () => {
 
       //la requete API
-      let request = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+      const request = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
 
       try {
-        let response = await fetch(request);
+        const response = await fetch(request);
         if (response.ok) {
-          let data = await response.json();
+          const data = await response.json();
 
           // Mise à jour des éléments HTML avec les données
           image.src = `https://openweathermap.org/img/w/${data.weather[0].icon}.png`;
-          temperature.textContent = `${data.main.temp} °C`;
-          ressenti.textContent = `Ressenti : ${data.main.feels_like} °C`;
+          temperature.textContent = `${Math.round(data.main.temp)} °C`;
+          ressenti.textContent = `Ressenti : ${Math.round(data.main.feels_like)} °C`;
           ville.textContent = data.name;
           humidity.textContent = `Humidité : ${data.main.humidity}%`;
           // je multiplie par 3.6 pour convertir les m/s en km/h (1 h = 3600 secondes)
-          wind.textContent = `Vitesse du vent : ${data.wind.speed * 3.6} km/h`;
+          wind.textContent = `Vitesse du vent : ${ Math.round(data.wind.speed * 3.6)} km/h`;
 
           //TEST de récupération des données en console de debogage
           console.log(data);
